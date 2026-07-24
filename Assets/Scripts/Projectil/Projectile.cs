@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
-public class Bullet : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
-    [Header("Bullet Config")]
+    [Header("Projectile Config")]
     [SerializeField] private float lifeSpan;
     [SerializeField] private float bulletSpeed;
 
     [SerializeField] private Rigidbody2D _rd2d;
     private float _currLifeSpan;
 
-    public void Init(Vector2 direction)
+    public IObjectPool<Projectile> ObjectPool { get; set; }
+
+    public void Init(Vector2 spawnPosition, Vector2 direction)
     {
+        _rd2d.position = spawnPosition;
+        _currLifeSpan = 0;
         _rd2d.linearVelocity = direction.normalized * bulletSpeed;
     }
 
@@ -18,7 +23,7 @@ public class Bullet : MonoBehaviour
     {
         if (_currLifeSpan >= lifeSpan)
         {
-            Destroy(gameObject);
+            ObjectPool.Release(this);
             return;
         }
 

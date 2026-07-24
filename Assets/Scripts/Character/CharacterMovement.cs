@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ChatacterMovement : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
     [Header("Movement & Speed Config")]
     [SerializeField] private float moveSpeed;

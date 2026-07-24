@@ -3,18 +3,16 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [Header("== Chatacter System ==")]
-    [SerializeField] private ChatacterMovement chatacterMovement;
+    [SerializeField] private CharacterMovement chatacterMovement;
+    [SerializeField] private CharacterHealth  characterHealth;
+    [SerializeField] private CharacterCombat characterCombat;
 
+    public CharacterMovement CharacterMovement => chatacterMovement;
+    public CharacterHealth CharacterHealth => characterHealth;
+    public CharacterCombat CharacterCombat => characterCombat;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public virtual void OnDeathCharacter()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

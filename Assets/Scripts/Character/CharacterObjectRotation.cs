@@ -48,7 +48,7 @@ public class CharacterObjectRotation : MonoBehaviour
     {
         if (playerInput == null)
         {
-            Debug.Log($"{gameObject.name} is missing playerInput!");
+            Debug.LogWarning($"{gameObject.name} is missing playerInput!");
             return;
         }
 
