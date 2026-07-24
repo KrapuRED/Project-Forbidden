@@ -17,11 +17,13 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] private CharacterObjectRotation characterObjectRotation;
     [SerializeField] private CharacterHealth  characterHealth;
     [SerializeField] private CharacterCombat characterCombat;
+    [SerializeField] private CharacterVisualizer characterVisualizer;
 
     public CharacterMovement CharacterMovement => chatacterMovement;
     public CharacterObjectRotation CharacterObjectRotation => characterObjectRotation;
     public CharacterHealth CharacterHealth => characterHealth;
     public CharacterCombat CharacterCombat => characterCombat;
+    public CharacterVisualizer CharacterVisualizer => characterVisualizer;
 
     public CharacterType CharacterType => chracterType;
     public string EntityID => entityID;

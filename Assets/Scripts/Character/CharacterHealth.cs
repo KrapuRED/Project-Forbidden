@@ -33,5 +33,6 @@ public class CharacterHealth : MonoBehaviour
         }
 
         healthUI.UpdateHralthSlider(currentHealth, maxHealth);
+        ownerCharacter.CharacterVisualizer.PlayVfx("Blip");
     }
 }

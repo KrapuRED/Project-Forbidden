@@ -182,6 +182,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 777926275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &206457628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206457629}
+  - component: {fileID: 206457630}
+  m_Layer: 0
+  m_Name: Blip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &206457629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206457628}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 386886412}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &206457630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206457628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e5a1fcdb19b49499e552f3d302d293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXBlipCharacter
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.1
 --- !u!1 &365492799
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +273,85 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityCounterManager
   entityCounterList: []
+--- !u!1 &386886411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 386886412}
+  - component: {fileID: 386886413}
+  m_Layer: 0
+  m_Name: Visualizer - VFX Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &386886412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386886411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 206457629}
+  m_Father: {fileID: 1410424491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &386886413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386886411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e5a1fcdb19b49499e552f3d302d293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXBlipCharacter
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.1
+--- !u!1 &439676003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 439676004}
+  m_Layer: 0
+  m_Name: Visualize - Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &439676004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439676003}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1692163408}
+  m_Father: {fileID: 1980734238}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &543734133
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +628,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d25141c450b5154a8c233bc6accdb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthUI
+--- !u!1 &1410424490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410424491}
+  - component: {fileID: 1410424492}
+  m_Layer: 0
+  m_Name: Enemy Minion System - Visualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1410424491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410424490}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 386886412}
+  m_Father: {fileID: 696951362678213080}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1410424492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410424490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1256ed30f741a48b17846eb221da18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterVisualizer
+  vfxContainer: {fileID: 386886412}
+  VFXCharacters: []
+  spriteRenderer: {fileID: 2517415197296974832}
 --- !u!1 &1424042994
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +829,110 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1692163407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1692163408}
+  - component: {fileID: 1692163409}
+  m_Layer: 0
+  m_Name: Blip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1692163408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692163407}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.175, y: 6.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 439676004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692163409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692163407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e5a1fcdb19b49499e552f3d302d293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXBlipCharacter
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.1
+--- !u!1 &1980734237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980734238}
+  - component: {fileID: 1980734239}
+  m_Layer: 0
+  m_Name: Player System - Visualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1980734238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980734237}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 439676004}
+  m_Father: {fileID: 1556115811219363326}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1980734239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980734237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1256ed30f741a48b17846eb221da18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterVisualizer
+  vfxContainer: {fileID: 439676004}
+  VFXCharacters: []
+  spriteRenderer: {fileID: 4529452783715207126}
+--- !u!4 &696951362678213080 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3501662751488739409, guid: 905c0583fb1411d4cbd3920a076fe761, type: 3}
+  m_PrefabInstance: {fileID: 5037971794325909826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1556115811219363326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7469105829064794952, guid: 17f70430f9fd1ce498f716ba8a4062c5, type: 3}
+  m_PrefabInstance: {fileID: 2482372691832170032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2482372691832170032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -664,6 +941,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 777926275}
     m_Modifications:
+    - target: {fileID: 874228424385278613, guid: 17f70430f9fd1ce498f716ba8a4062c5, type: 3}
+      propertyPath: characterVisualizer
+      value: 
+      objectReference: {fileID: 1980734239}
     - target: {fileID: 931953581581354186, guid: 17f70430f9fd1ce498f716ba8a4062c5, type: 3}
       propertyPath: playerInput
       value: 
@@ -720,15 +1001,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Player '
       objectReference: {fileID: 0}
+    - target: {fileID: 4923779686862577176, guid: 17f70430f9fd1ce498f716ba8a4062c5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4923779686862577176, guid: 17f70430f9fd1ce498f716ba8a4062c5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4923779686862577176, guid: 17f70430f9fd1ce498f716ba8a4062c5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6639012332822749041, guid: 17f70430f9fd1ce498f716ba8a4062c5, type: 3}
       propertyPath: healthUI
       value: 
       objectReference: {fileID: 1359560569}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7469105829064794952, guid: 17f70430f9fd1ce498f716ba8a4062c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1980734238}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17f70430f9fd1ce498f716ba8a4062c5, type: 3}
+--- !u!212 &2517415197296974832 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7379335905995142766, guid: 905c0583fb1411d4cbd3920a076fe761, type: 3}
+  m_PrefabInstance: {fileID: 5037971794325909826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4529452783715207126 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4923779686862577176, guid: 17f70430f9fd1ce498f716ba8a4062c5, type: 3}
+  m_PrefabInstance: {fileID: 2482372691832170032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5037971794325909826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -777,13 +1083,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3597717958601367537, guid: 905c0583fb1411d4cbd3920a076fe761, type: 3}
+      propertyPath: characterVisualizer
+      value: 
+      objectReference: {fileID: 1410424492}
     - target: {fileID: 7857221067704329694, guid: 905c0583fb1411d4cbd3920a076fe761, type: 3}
       propertyPath: m_Name
       value: Enemy Minion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3501662751488739409, guid: 905c0583fb1411d4cbd3920a076fe761, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1410424491}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 905c0583fb1411d4cbd3920a076fe761, type: 3}
 --- !u!4 &7364050031179688195 stripped
