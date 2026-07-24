@@ -18,8 +18,16 @@ public class CharacterHealth : MonoBehaviour
         currentHealth = maxHealth = deafaultHealth;
     }
 
-    public void TakingDamage(float damageValue)
+    public void OnTakingDamage(float damageValue)
     {
+        Debug.Log($"{gameObject.name} is taking damage {damageValue}");
 
+        currentHealth = Mathf.Min(currentHealth - damageValue, maxHealth);
+
+        if (currentHealth <= 0)
+        {
+            ownerCharacter.OnDeathCharacter();
+            return;
+        }
     }
 }

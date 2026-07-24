@@ -54,14 +54,11 @@ public class CharacterMovement : MonoBehaviour
         isReady = _rb2d ? true : false;
     }
 
-    private void FixedUpdate()
-    {
-        OnMoveCharacter(_ownerDirection);
-    }
-
     public void OnInputMovement(InputAction.CallbackContext contex)
     {
         _ownerDirection = contex.ReadValue<Vector2>();
+
+        OnMoveCharacter(_ownerDirection);
     }
 
     public void OnMoveCharacter(Vector2 direction)

@@ -2,23 +2,22 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Pool;
 
-public class CharacterCombat : MonoBehaviour
+public abstract class CharacterCombat : MonoBehaviour
 {
-    [SerializeField] private Character ownerCharacter;
+    [SerializeField] protected Character ownerCharacter;
 
     [Header("Combat Config")]
-    [SerializeField] private Projectile bulletPrefab;
+    [SerializeField] protected Projectile bulletPrefab;
 
     [Header("Pooling Size")]
-    [SerializeField] private int defaultCapacityPool;
-    [SerializeField] private int maxCapacityPool;
+    [SerializeField] protected int defaultCapacityPool;
+    [SerializeField] protected int maxCapacityPool;
 
-    [Header("References")]
-    [SerializeField] private PlayerInput playerInput;
-    [SerializeField] private Transform bulletContainer;
-    [SerializeField] private Transform pointer;
+    [Header("General References")]
+    [SerializeField] protected Transform bulletContainer;
+    [SerializeField] protected Transform pointer;
 
-    private IObjectPool<Projectile> _bulletPool;
+    protected IObjectPool<Projectile> _bulletPool;
 
     private void Awake()
     {
@@ -32,41 +31,6 @@ public class CharacterCombat : MonoBehaviour
             maxSize         : maxCapacityPool
             );
     }
-
-    #region Event System
-    private void OnEnable()
-    {
-        if (playerInput != null)
-        {
-            playerInput.actions["Combat"].performed += OnInputAttack;
-            playerInput.actions["Combat"].canceled += OnInputAttack;
-
-        }
-    }
-
-    private void OnDisable()
-    {
-        OnRemoveListener();
-    }
-
-    private void OnDestroy()
-    {
-        OnRemoveListener();
-    }
-
-    private void OnRemoveListener()
-    {
-        if (playerInput == null)
-        {
-            Debug.LogWarning($"{gameObject.name} is missing playerInput!");
-            return;
-        }
-
-        playerInput.actions["Combat"].performed -= OnInputAttack;
-        playerInput.actions["Combat"].canceled -= OnInputAttack;
-    }
-    #endregion
-
 
     // 1. Triggered when the pool needs to create a brand new instance
     private Projectile CreateProjectile()
@@ -94,20 +58,5 @@ public class CharacterCombat : MonoBehaviour
         Destroy(projectile.gameObject);
     }
 
-    public void OnInputAttack(InputAction.CallbackContext context)
-    {
-        if (!context.performed)
-            return;
-
-        OnAttack();
-    }
-
-
-    public void OnAttack()
-    {
-        Vector2 direction = pointer.up;
-
-        Projectile newBullet = _bulletPool.Get();
-        newBullet.Init(pointer.position, direction);
-    }
+    public abstract void OnAttack(Transform dire);
 }

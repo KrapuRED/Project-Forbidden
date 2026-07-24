@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     [Header("Projectile Config")]
     [SerializeField] private float lifeSpan;
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private float bulletDamage;
 
     [SerializeField] private Rigidbody2D _rd2d;
     private float _currLifeSpan;
@@ -28,5 +29,14 @@ public class Projectile : MonoBehaviour
         }
 
         _currLifeSpan += Time.deltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
+        {
+            damageable.ITakeDamage(bulletDamage);
+            ObjectPool.Release(this);
+        }
     }
 }

@@ -2,15 +2,9 @@ using UnityEngine;
 
 public class PlayerCharacter : Character
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void OnDeathCharacter()
     {
-        
-    }
+        Debug.Log($"{gameObject.name} is Dead");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

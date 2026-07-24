@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2029642950992834551}
   - component: {fileID: -6539370973710015065}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   lifeSpan: 2
-  bulletSpeed: 20
+  bulletSpeed: 5
   bulletDamage: 10
   _rd2d: {fileID: 2029642950992834551}
 --- !u!50 &2029642950992834551
