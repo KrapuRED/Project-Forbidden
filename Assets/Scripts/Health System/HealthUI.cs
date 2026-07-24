@@ -1,7 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Slider healthSlider;
 
+    public void UpdateHralthSlider(float currentHealth, float maxHealth)
+    {
+        healthSlider.value = currentHealth / maxHealth;
+    }
 }

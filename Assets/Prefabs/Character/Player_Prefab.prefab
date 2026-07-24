@@ -47,6 +47,7 @@ MonoBehaviour:
   ownerCharacter: {fileID: 874228424385278613}
   maxHealth: 100
   currentHealth: 0
+  healthUI: {fileID: 0}
 --- !u!1 &2803438626515640272
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,9 +143,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5765384403591069285, guid: 83d68f50d50ba3c4395e1eb0f9aede1b, type: 3}
   defaultCapacityPool: 10
   maxCapacityPool: 20
-  playerInput: {fileID: 0}
   bulletContainer: {fileID: 3957903771599577337}
   pointer: {fileID: 7517061018141646909}
+  playerInput: {fileID: 0}
 --- !u!1 &4254171731697755009
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterObjectRotation
   ownerCharacter: {fileID: 874228424385278613}
+  isAIControlled: 0
   pointer: {fileID: 7517061018141646909}
+  distanceView: 0
   offsetPointer: 1.5
   playerInput: {fileID: 0}
 --- !u!1 &4609035298286669971
@@ -302,9 +305,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b28d04caa442340b59ac90657b480c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCharacter
+  entityID: 
+  chracterType: 0
   chatacterMovement: {fileID: 931953581581354186}
+  characterObjectRotation: {fileID: 3747647709534124758}
   characterHealth: {fileID: 6639012332822749041}
-  characterCombat: {fileID: 0}
+  characterCombat: {fileID: 4164212750207099789}
 --- !u!50 &2486635234857688388
 Rigidbody2D:
   serializedVersion: 5
