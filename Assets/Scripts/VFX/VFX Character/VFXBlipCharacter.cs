@@ -4,28 +4,39 @@ using UnityEngine;
 
 public class VFXBlipCharacter : VfxCharacter
 {
-    [SerializeField] private Color flashColor = Color.white; 
-    [SerializeField] private float flashDuration = 0.1f;
+    [SerializeField] private Material flashHitMaterial;
+    [SerializeField] private float duration;
 
-    private Color _originalColor;
-    private Tween _flashTween;
+    private Material _defaultMaterial;
+    private bool _hasCapturedDefault;
+    private Coroutine _coroutine;
 
     public override void AnimationIn(SpriteRenderer spriteRenderer)
     {
         if (spriteRenderer == null) return;
 
-        if (_flashTween != null && _flashTween.IsActive())
+        if (!_hasCapturedDefault) // NEW — only grab it once, before any flash overwrites it
         {
-            _flashTween.Complete();
+            _defaultMaterial = spriteRenderer.material;
+            _hasCapturedDefault = true;
         }
 
-        _originalColor = spriteRenderer.color;
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
 
-        // Set warna langsung ke warna flash
-        spriteRenderer.color = flashColor;
+        _coroutine = StartCoroutine(FlashRoutine(spriteRenderer));
+    }
 
-        // Animasikan warna kembali ke warna asli
-        _flashTween = spriteRenderer.DOColor(_originalColor, flashDuration)
-            .SetEase(Ease.OutQuad);
+    private IEnumerator FlashRoutine(SpriteRenderer spriteRenderer)
+    {
+        spriteRenderer.material = flashHitMaterial;
+
+        yield return new WaitForSeconds(duration);
+
+        spriteRenderer.material = _defaultMaterial;
+
+        _coroutine = null;
     }
 }

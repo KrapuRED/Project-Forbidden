@@ -7,6 +7,9 @@ public class MapMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!GamaManager.Instance.IsGameActive)
+            return;
+
         transform.Translate(Vector2.down * speedMapMovement * Time.deltaTime);
     }
 }

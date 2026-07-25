@@ -7,8 +7,11 @@ public class EnemyCharacter : Character
 
     [Header("Path Following")]
     [SerializeField] private EnemyPath currentPath;
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private int lutSampleCount = 200;
     private Vector2 _previousPosition;
+    private float[] _cumulativeDistances;
+    private float _distanceTravelled;
 
     [Header("Enemy Combat System")]
     [SerializeField] private EnemyCombatCharacter enemyCombatCharacter;
@@ -18,7 +21,6 @@ public class EnemyCharacter : Character
     public EnemyCombatCharacter EnemyCombatCharacter => enemyCombatCharacter;
 
     private Rigidbody2D rb;
-    private float _t; 
     private float _pathLength;
 
     private void Awake()
@@ -26,33 +28,76 @@ public class EnemyCharacter : Character
         if (rb == null) rb = GetComponent<Rigidbody2D>();
     }
 
+    private void BuildDistanceLUT()
+    {
+        _cumulativeDistances = new float[lutSampleCount + 1];
+        Vector2 prevPoint = currentPath.GetSplinePoint(0f);
+        _cumulativeDistances[0] = 0f;
+
+        for (int i = 1; i <= lutSampleCount; i++)
+        {
+            float t = i / (float)lutSampleCount;
+            Vector2 point = currentPath.GetSplinePoint(t);
+            _cumulativeDistances[i] = _cumulativeDistances[i - 1] + Vector2.Distance(prevPoint, point);
+            prevPoint = point;
+        }
+
+        _pathLength = _cumulativeDistances[lutSampleCount];
+    }
+
+    // Converts "how far we've travelled" into the correct t for that distance
+    private float DistanceToT(float distance)
+    {
+        if (distance <= 0f) return 0f;
+        if (distance >= _pathLength) return 1f;
+
+        for (int i = 1; i <= lutSampleCount; i++)
+        {
+            if (_cumulativeDistances[i] >= distance)
+            {
+                float segStart = _cumulativeDistances[i - 1];
+                float segEnd = _cumulativeDistances[i];
+                float segT = (distance - segStart) / (segEnd - segStart); // lerp within this segment
+                float tStart = (i - 1) / (float)lutSampleCount;
+                float tEnd = i / (float)lutSampleCount;
+                return Mathf.Lerp(tStart, tEnd, segT);
+            }
+        }
+        return 1f;
+    }
+
     private void FixedUpdate()
     {
         if (currentPath == null || currentPath.PointCount < 2)
             return;
 
-        if (_t >= 1f)
+        if (_distanceTravelled >= _pathLength)
         {
             CharacterMovement.StopAtBorder();
             ReachEndPoint();
             return;
         }
 
-        if (_pathLength > 0f)
-        {
-            float deltaT = (moveSpeed * Time.fixedDeltaTime) / _pathLength;
-            _t = Mathf.Clamp01(_t + deltaT);
-        }
+        _distanceTravelled += moveSpeed * Time.fixedDeltaTime; // now this IS actually distance
+        _distanceTravelled = Mathf.Clamp(_distanceTravelled, 0f, _pathLength);
 
-        Vector2 targetPosition = currentPath.GetSplinePoint(_t);
+        float t = DistanceToT(_distanceTravelled);
+        Vector2 targetPosition = currentPath.GetSplinePoint(t);
         CharacterMovement.OnMoveCharacterByPath(targetPosition);
     }
 
-    public void InitEnemy(EnemyPath path)
+    public void InitEnemy(EnemyPath path, float speed)
     {
-        _t = 0f;
         isDead = false;
+        moveSpeed = speed;
+
+        _distanceTravelled = 0f;
         currentPath = path;
+        if (path != null && path.PointCount > 0)
+        {
+            BuildDistanceLUT(); // replaces your old GetPathLength() call
+            transform.position = path.GetSplinePoint(0f);
+        }
 
         if (path != null && path.PointCount > 0)
         {
@@ -92,8 +137,11 @@ public class EnemyCharacter : Character
             return;
 
         isDead = true;
-        Debug.Log($"{gameObject.name} is Dead");
+
+        SoundEffectManager.Instance.PlaySound2D("enemy_die");
+        GlobalEvent.OnKillEnemy.Invoke();
+
         EntityCounterManager.Instance.RemoveEntityFormCounterByID(EntityID);
-        //ObjectPool.Release(this);
+        ObjectPool.Release(this);
     }
 }

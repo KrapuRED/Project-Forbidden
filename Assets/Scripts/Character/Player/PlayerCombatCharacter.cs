@@ -46,10 +46,14 @@ public class PlayerCombatCharacter : CharacterCombat
         OnAttack(pointer);
     }
 
-
     public override void OnAttack(Transform directionAttack)
     {
+        if (!GamaManager.Instance.IsGameActive)
+            return;
+
         Vector2 direction = pointer.up;
+
+        SoundEffectManager.Instance.PlaySound2D("player_shoot");
 
         Projectile newBullet = _bulletPool.Get();
         newBullet.Init(directionAttack.position, direction);

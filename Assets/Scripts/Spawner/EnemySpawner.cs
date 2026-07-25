@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Pool;
+using System.Collections;
 using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
@@ -7,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public static EnemySpawner Instance { get; private set; }
 
     [Header("Spawning Point Config")]
+    [SerializeField] private float interval;
     [SerializeField] private List<EnemyPath> enemyPathDatas = new();
 
     [Header("Spawning Pool Config")]
@@ -15,7 +17,12 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawning Enemy Config")]
     [SerializeField] private Transform enemyContainer;
+    [SerializeField] private List<EnemyCharacter> enemyPrefabs = new();
     [SerializeField] private EnemyCharacter enemyPrefab;
+
+    private Coroutine _spawnCoroutine;
+    private int _maxSpawned;
+    private int _currentSpawned;
 
     private IObjectPool<EnemyCharacter> _enemyPools ;
 
@@ -40,7 +47,9 @@ public class EnemySpawner : MonoBehaviour
     #region Pooling Optimize Config
     private EnemyCharacter CreateEnemyCharacter()
     {
-        EnemyCharacter enemyCharacter = Instantiate(enemyPrefab, enemyContainer);
+        int randomIndex = Random.Range(0, enemyPrefabs.Count); 
+
+        EnemyCharacter enemyCharacter = Instantiate(enemyPrefabs[randomIndex], enemyContainer);
         enemyCharacter.ObjectPool = _enemyPools;
         return enemyCharacter;
     }
@@ -53,7 +62,6 @@ public class EnemySpawner : MonoBehaviour
     private void OnReleaseToPool(EnemyCharacter enemy)
     {
         enemy.gameObject.SetActive(false);
-
     }
 
     private void OnDestroyPooledObject(EnemyCharacter enemy)
@@ -64,15 +72,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        OnSpawningEnemy();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            OnSpawningEnemy();
-        }
+        StartSpawning(2.5f, 1);
     }
 
     private EnemyPath GetRandomPath()
@@ -82,14 +82,44 @@ public class EnemySpawner : MonoBehaviour
         return enemyPathDatas[randomIndex];
     }
 
-    public void OnSpawningEnemy()
+    private void OnSpawningEnemy(float speed, int spawned)
     {
-        EnemyCharacter newEnemy = _enemyPools.Get();
-
         bool spawnFromLeft = Random.value > 0.5f;
 
         EnemyPath selectdPath = GetRandomPath();
 
-        newEnemy.InitEnemy(selectdPath);
+        EnemyCharacter newEnemy = _enemyPools.Get();
+        newEnemy.InitEnemy(selectdPath, speed);
+    }
+
+    public void StartSpawning(float speed, int countPerBatch)
+    {
+        StopSpawning();
+
+        _maxSpawned = countPerBatch;
+        _currentSpawned = 0;
+
+        _spawnCoroutine = StartCoroutine(SpawnRoutine(speed, countPerBatch));
+    }
+
+    public void StopSpawning()
+    {
+        if (_spawnCoroutine != null)
+        {
+            StopCoroutine(_spawnCoroutine);
+            _spawnCoroutine = null;
+        }
+    }
+
+    private IEnumerator SpawnRoutine(float speed, int countPerBatch)
+    {
+        WaitForSeconds wait = new WaitForSeconds(interval);
+
+        while (_currentSpawned <= _maxSpawned)
+        {
+            OnSpawningEnemy(speed, countPerBatch);
+            _currentSpawned++;
+            yield return wait;
+        }
     }
 }

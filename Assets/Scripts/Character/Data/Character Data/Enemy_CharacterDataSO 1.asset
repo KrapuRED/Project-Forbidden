@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f05446d5b6f38a047b7abd36d2248ad7, type: 3}
-  m_Name: Enemy_CharacterDataSO
+  m_Name: Enemy_CharacterDataSO 1
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDataSO
   characterName: 
-  characterHealthAmount: 15
+  characterHealthAmount: 41

@@ -65,6 +65,9 @@ public class CharacterMovement : MonoBehaviour
 
     public void OnMoveCharacter(Vector2 direction)
     {
+        if (!GamaManager.Instance.IsGameActive)
+            return;
+
         if (!isReady)
         {
             Debug.Log($"{gameObject.name}is missing RigidBody2D!");

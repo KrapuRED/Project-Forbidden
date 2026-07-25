@@ -9,6 +9,30 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField] private float currentHealth;
     [SerializeField] private HealthUI healthUI;
 
+    #region Event System
+    private void OnEnable()
+    {
+        GlobalEvent.OnKillEnemy.AddListener(TakeHealing);
+    }
+
+    private void OnDisable()
+    {
+        OnRemoveListener();
+    }
+
+    private void OnDestroy()
+    {
+        OnRemoveListener();
+    }
+
+    private void OnRemoveListener()
+    {
+        GlobalEvent.OnKillEnemy.RemoveListener(TakeHealing);
+
+    }
+
+    #endregion
+
     public void Init(float deafaultHealth)
     {
         currentHealth = maxHealth = deafaultHealth;
@@ -25,7 +49,17 @@ public class CharacterHealth : MonoBehaviour
             return;
         }
 
+        if (ownerCharacter.CharacterType == CharacterType.Player)
+            SoundEffectManager.Instance.PlaySound2D("player_hurt");
+
         healthUI.UpdateHralthSlider(currentHealth, maxHealth);
         ownerCharacter.CharacterVisualizer.PlayVfx("Blip");
+    }
+
+    public void TakeHealing()
+    {
+        currentHealth += 5;
+        healthUI.UpdateHralthSlider(currentHealth, maxHealth);
+
     }
 }
