@@ -58,8 +58,9 @@ public class CharacterMovement : MonoBehaviour
 
     public void OnInputMovement(InputAction.CallbackContext contex)
     {
-        _ownerDirection = contex.ReadValue<Vector2>();
+        if (this == null) return; // catches destroyed-but-still-invoked case
 
+        _ownerDirection = contex.ReadValue<Vector2>();
         OnMoveCharacter(_ownerDirection);
     }
 
@@ -67,18 +68,15 @@ public class CharacterMovement : MonoBehaviour
     {
         if (!GameManager.Instance.IsGameActive)
             return;
-
-        if (!isReady)
+        if (_rb2d == null) // check the real thing, not a stale bool
         {
-            Debug.Log($"{gameObject.name}is missing RigidBody2D!");
+            Debug.Log($"{gameObject.name} is missing RigidBody2D!");
             return;
         }
-
         float movementSpeed = direction.magnitude;
-
-        if (ownerMovement.CharacterAnimation != null)
+        if (ownerMovement != null && ownerMovement.CharacterAnimation != null)
             ownerMovement.CharacterAnimation.PlayWalkingAnimtion(movementSpeed);
-       
+
         _rb2d.linearVelocity = direction * moveSpeed;
     }
 

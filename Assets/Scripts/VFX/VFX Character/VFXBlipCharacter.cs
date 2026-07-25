@@ -14,8 +14,9 @@ public class VFXBlipCharacter : VfxCharacter
     public override void AnimationIn(SpriteRenderer spriteRenderer)
     {
         if (spriteRenderer == null) return;
+        if (!gameObject.activeInHierarchy) return; // can't run a coroutine on an inactive object
 
-        if (!_hasCapturedDefault) // NEW — only grab it once, before any flash overwrites it
+        if (!_hasCapturedDefault)
         {
             _defaultMaterial = spriteRenderer.material;
             _hasCapturedDefault = true;
@@ -25,7 +26,6 @@ public class VFXBlipCharacter : VfxCharacter
         {
             StopCoroutine(_coroutine);
         }
-
         _coroutine = StartCoroutine(FlashRoutine(spriteRenderer));
     }
 

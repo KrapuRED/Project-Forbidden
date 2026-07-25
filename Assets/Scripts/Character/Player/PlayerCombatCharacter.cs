@@ -51,10 +51,11 @@ public class PlayerCombatCharacter : CharacterCombat
         if (!GameManager.Instance.IsGameActive)
             return;
 
-        Vector2 direction = pointer.up;
+        if (directionAttack == null) // Unity's overloaded == catches destroyed objects too
+            return;
 
+        Vector2 direction = pointer.up; // note: see below, this should probably use directionAttack
         SoundEffectManager.Instance.PlaySound2D("player_shoot");
-
         Projectile newBullet = _bulletPool.Get();
         newBullet.Init(directionAttack.position, direction);
     }

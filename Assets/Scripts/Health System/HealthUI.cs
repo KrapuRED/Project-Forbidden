@@ -7,6 +7,9 @@ public class HealthUI : MonoBehaviour
 
     public void UpdateHralthSlider(float currentHealth, float maxHealth)
     {
+        if (healthSlider == null)
+            return;
+
         healthSlider.value = currentHealth / maxHealth;
     }
 }
