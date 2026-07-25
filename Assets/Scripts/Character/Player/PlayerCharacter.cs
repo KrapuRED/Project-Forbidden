@@ -12,7 +12,10 @@ public class PlayerCharacter : Character
 
     public override void OnDeathCharacter()
     {
+        if (isDead) return;
+
+        isDead = true;
         Debug.Log($"{gameObject.name} is Dead");
-        GamaManager.Instance.GameOver();
+        GameManager.Instance.GameOver();
     }
 }

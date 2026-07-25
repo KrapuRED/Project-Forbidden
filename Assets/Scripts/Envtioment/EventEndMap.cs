@@ -7,6 +7,6 @@ public class EventEndMap : MonoBehaviour
         if (!collision.CompareTag("Player"))
             return;
 
-        GamaManager.Instance.EndGame();
+        GameManager.Instance.EndGame();
     }
 }

@@ -60,7 +60,7 @@ public class CharacterObjectRotation : MonoBehaviour
 
     private void Update()
     {
-        if (!GamaManager.Instance.IsGameActive)
+        if (!GameManager.Instance.IsGameActive)
             return;
 
         if (isAIControlled)

@@ -48,7 +48,7 @@ public class PlayerCombatCharacter : CharacterCombat
 
     public override void OnAttack(Transform directionAttack)
     {
-        if (!GamaManager.Instance.IsGameActive)
+        if (!GameManager.Instance.IsGameActive)
             return;
 
         Vector2 direction = pointer.up;

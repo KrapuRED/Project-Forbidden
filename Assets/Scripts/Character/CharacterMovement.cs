@@ -65,7 +65,7 @@ public class CharacterMovement : MonoBehaviour
 
     public void OnMoveCharacter(Vector2 direction)
     {
-        if (!GamaManager.Instance.IsGameActive)
+        if (!GameManager.Instance.IsGameActive)
             return;
 
         if (!isReady)
