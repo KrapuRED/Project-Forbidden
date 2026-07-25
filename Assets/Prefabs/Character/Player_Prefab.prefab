@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1466776086072637765}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visualize - Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8878496406266820304}
   - component: {fileID: 6639012332822749041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player System - Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8070402668952745820}
   - component: {fileID: 2625316841563329787}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13319963084705665}
   - component: {fileID: 931953581581354186}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player System - Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2646972496386026109}
   - component: {fileID: 4164212750207099789}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player System - Combat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8825117125945032661}
   - component: {fileID: 3747647709534124758}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Player System - Rotation '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,9 +289,9 @@ GameObject:
   - component: {fileID: 6150280218116619375}
   - component: {fileID: 2486635234857688388}
   - component: {fileID: 4655515016240445601}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player_Prefab
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,6 +387,7 @@ MonoBehaviour:
   entityID: 
   characterData: {fileID: 11400000, guid: 9037097e772bc79468ba2c07c9062ec8, type: 2}
   chracterType: 0
+  isDead: 0
   chatacterMovement: {fileID: 931953581581354186}
   characterObjectRotation: {fileID: 3747647709534124758}
   characterHealth: {fileID: 6639012332822749041}
@@ -480,7 +481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7517061018141646909}
   - component: {fileID: 6330411022119951954}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pointer - Indicatore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3957903771599577337}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Container - Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5137006032716683295}
   - component: {fileID: 2053005715112855413}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player System - Visualizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7469105829064794952}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: == Player System ==
   m_TagString: Untagged
   m_Icon: {fileID: 0}

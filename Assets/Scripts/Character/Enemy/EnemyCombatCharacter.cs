@@ -3,14 +3,11 @@ using System.Collections;
 
 public class EnemyCombatCharacter : CharacterCombat
 {
-    [SerializeField] private float coolDownBasic;
-    [SerializeField] private float invtervalBetween;
-    [SerializeField] private int limitBasicAtk;
+    [SerializeField] private EnemyCharacter enemyCharacter;
+    [SerializeField] private CombatStyle combatStyle;
 
-    private float _interval;
-    private int _currBasicAtk;
-    [SerializeField] private bool isCoolDown;
     private Transform _currentPlayerPos;
+    public Transform CurrentPLayerPosition => _currentPlayerPos;
 
     public void SetPlayerPosition(Transform playerPosition)
     {
@@ -20,49 +17,12 @@ public class EnemyCombatCharacter : CharacterCombat
             return;
         }
 
-        _currBasicAtk = 0;
-        _interval = 0f;
-        isCoolDown = false;
-
         _currentPlayerPos = playerPosition;
     }
 
     public override void OnAttackByState()
     {
-        if (ownerCharacter == null)
-        {
-            Debug.Log($"{ownerCharacter.name} is cannot find player Transform");
-            return;
-        }
-
-        if (_currentPlayerPos == null)
-            return;
-
-        Vector2 dirToPlayer = (_currentPlayerPos.position - ownerCharacter.transform.position).normalized;
-        ownerCharacter.CharacterObjectRotation.RotateIndicator(dirToPlayer);
-
-        if (isCoolDown) return;
-
-        if (_currentPlayerPos == null)
-            return;
-
-        // Eksekusi Serangan
-        if (_interval >= invtervalBetween)
-        {
-            ownerCharacter.CharacterCombat.OnAttack(_currentPlayerPos);
-            _currBasicAtk++;
-            _interval = 0f; // Reset interval setelah menembak
-            if (_currBasicAtk >= limitBasicAtk)
-            {
-
-                isCoolDown = true;
-                ownerCharacter.StartCoroutine(OnCoolDownRoutine());
-            }
-        }
-        else
-        {
-            _interval += Time.deltaTime;
-        }
+        combatStyle.OnUsingCombatStyle(enemyCharacter);
     }
 
     public override void OnAttack(Transform directionAttack)
@@ -81,21 +41,16 @@ public class EnemyCombatCharacter : CharacterCombat
         newBullet.Init(directionAttack.position, direction);
     }
 
-    public void ResetCombat()
+    public Projectile FireMainBullet(Transform target)
     {
-        _currBasicAtk = 0;
-        _interval = 0f;
-        isCoolDown = false;
+        if (pointer == null || target == null) return null;
+
+        Vector2 direction = (target.position - pointer.position).normalized;
+        Projectile newBullet = _bulletPool.Get();
+        newBullet.transform.position = pointer.position;
+        newBullet.Init(target.position, direction);
+        return newBullet;
     }
 
-    private IEnumerator OnCoolDownRoutine()
-    {
-        isCoolDown = true;
-
-        yield return new WaitForSeconds(coolDownBasic);
-        _currBasicAtk = 0;
-        _interval = 0f;
-        isCoolDown = false;
-
-    }
+    public void ResetCombat() => combatStyle.OnResetCombatStyle();
 }

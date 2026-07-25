@@ -8,8 +8,6 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawning Point Config")]
     [SerializeField] private List<EnemyPath> enemyPathDatas = new();
-    [SerializeField] private List<Transform> leftSpawnPoints = new();
-    [SerializeField] private List<Transform> rightSpawnPoints = new();
 
     [Header("Spawning Pool Config")]
     [SerializeField] private int defaultPoolCapacity;

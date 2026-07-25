@@ -516,14 +516,10 @@ MonoBehaviour:
   - {fileID: 1932939051}
   - {fileID: 1814171997}
   - {fileID: 166145570}
-  leftSpawnPoints:
-  - {fileID: 1040117131}
-  rightSpawnPoints:
-  - {fileID: 1638774740}
   defaultPoolCapacity: 10
   maxPoolCapacity: 20
   enemyContainer: {fileID: 16857686}
-  enemyPrefab: {fileID: 7364050031179688196}
+  enemyPrefab: {fileID: 3597717958601367537, guid: e5e584e21bea8174f838302193949d4e, type: 3}
 --- !u!1 &237006800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2725,17 +2721,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1153514136424618013, guid: 905c0583fb1411d4cbd3920a076fe761, type: 3}
   m_PrefabInstance: {fileID: 5037971794325909826}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7364050031179688196 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3597717958601367537, guid: 905c0583fb1411d4cbd3920a076fe761, type: 3}
-  m_PrefabInstance: {fileID: 5037971794325909826}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37446d754e98f8e4f92338b22a904761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacter
 --- !u!1001 &8655850718270788002
 PrefabInstance:
   m_ObjectHideFlags: 0

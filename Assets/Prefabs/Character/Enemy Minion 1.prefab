@@ -52,7 +52,7 @@ MonoBehaviour:
   bulletContainer: {fileID: 4004988284199117331}
   pointer: {fileID: 4516775978980362014}
   enemyCharacter: {fileID: 3597717958601367537}
-  combatStyle: {fileID: 1920861691445011850}
+  combatStyle: {fileID: 6466717498864290418}
 --- !u!1 &3072473905674557684
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2320936908897104207}
-  - component: {fileID: 1920861691445011850}
+  - component: {fileID: 6466717498864290418}
   m_Layer: 6
   m_Name: Combat Style
   m_TagString: Untagged
@@ -132,7 +132,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2515284778516627596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1920861691445011850
+--- !u!114 &6466717498864290418
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,13 +141,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3834703245429724426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b27a0713c678a844b3d88c9b8a77cfc, type: 3}
+  m_Script: {fileID: 11500000, guid: e2ca884fce6beb04b8314a3c64303602, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BurstCombatStyle
-  coolDownBasic: 2
-  invtervalBetween: 0.25
-  limitBasicAtk: 3
+  m_EditorClassIdentifier: Assembly-CSharp::SpinCombatStyle
+  coolDown: 2
   isCoolDown: 0
+  smallBulletPrefab: {fileID: 4868063193977537804, guid: 88f6967008197f647ae135e1e72b71ef, type: 3}
+  attackDirection: 3
+  spreadAngle: 90
+  smallBulletSpeed: 4
+  burstInterval: 1
+  maxBurstCount: 3
 --- !u!1 &4938422340869725897
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +344,7 @@ GameObject:
   - component: {fileID: 4284363735705768605}
   - component: {fileID: 1788493059168388804}
   m_Layer: 6
-  m_Name: Enemy Minion
+  m_Name: Enemy Minion 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,6 +442,7 @@ MonoBehaviour:
   entityID: 
   characterData: {fileID: 11400000, guid: 6e82532e225ff7542b0ba67388579e14, type: 2}
   chracterType: 1
+  isDead: 0
   chatacterMovement: {fileID: 6411946241021632627}
   characterObjectRotation: {fileID: 6204247473602379487}
   characterHealth: {fileID: 2246364846001547030}

@@ -12,6 +12,7 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] private string entityID;
     [SerializeField] private CharacterDataSO characterData;
     [SerializeField] private CharacterType chracterType;
+    [SerializeField] protected bool isDead;
 
     [Header("== Chatacter System ==")]
     [SerializeField] private CharacterMovement chatacterMovement;

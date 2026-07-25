@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float lifeSpan;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float bulletDamage;
+    [SerializeField] private LayerMask attackableLayerMask;
 
     [SerializeField] private Rigidbody2D _rd2d;
     private float _currLifeSpan;
@@ -31,8 +32,16 @@ public class Projectile : MonoBehaviour
         _currLifeSpan += Time.deltaTime;
     }
 
+    private static bool IsInLayerMask(int layer, LayerMask mask)
+    {
+        return (mask.value & (1 << layer)) != 0;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!IsInLayerMask(collision.gameObject.layer, attackableLayerMask))
+            return;
+
         if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             damageable.ITakeDamage(bulletDamage);

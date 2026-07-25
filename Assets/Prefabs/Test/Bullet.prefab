@@ -109,6 +109,9 @@ MonoBehaviour:
   lifeSpan: 2
   bulletSpeed: 20
   bulletDamage: 10
+  attackableLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   _rd2d: {fileID: 2029642950992834551}
 --- !u!50 &2029642950992834551
 Rigidbody2D:

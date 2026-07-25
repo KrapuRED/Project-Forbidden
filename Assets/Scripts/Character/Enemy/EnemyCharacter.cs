@@ -51,6 +51,7 @@ public class EnemyCharacter : Character
     public void InitEnemy(EnemyPath path)
     {
         _t = 0f;
+        isDead = false;
         currentPath = path;
 
         if (path != null && path.PointCount > 0)
@@ -87,8 +88,12 @@ public class EnemyCharacter : Character
 
     public override void OnDeathCharacter()
     {
+        if (isDead)
+            return;
+
+        isDead = true;
         Debug.Log($"{gameObject.name} is Dead");
         EntityCounterManager.Instance.RemoveEntityFormCounterByID(EntityID);
-        ObjectPool.Release(this);
+        //ObjectPool.Release(this);
     }
 }
