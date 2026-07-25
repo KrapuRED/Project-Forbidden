@@ -32,8 +32,8 @@ public class FailedPanel : Panel
         // Fade out content first
         yield return contentCanvasGroup.DOFade(0f, 1).WaitForCompletion();
 
-        panelCanvasGroup.interactable = true;
-        panelCanvasGroup.blocksRaycasts = true;
+        panelCanvasGroup.interactable = false;
+        panelCanvasGroup.blocksRaycasts = false;
         contentCanvasGroup.interactable = false;
         contentCanvasGroup.blocksRaycasts = false;
 
