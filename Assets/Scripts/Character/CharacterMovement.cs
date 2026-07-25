@@ -70,9 +70,20 @@ public class CharacterMovement : MonoBehaviour
             Debug.Log($"{gameObject.name}is missing RigidBody2D!");
             return;
         }
-
        
         _rb2d.linearVelocity = direction * moveSpeed;
+    }
+
+    public void OnMoveCharacterByPath(Vector2 targetPosition)
+    {
+        if (_rb2d != null)
+        {
+            _rb2d.MovePosition(targetPosition);
+        }
+        else
+        {
+            ownerMovement.transform.position = targetPosition;
+        }
     }
 
     public void StopAtBorder()

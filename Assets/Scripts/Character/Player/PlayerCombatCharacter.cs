@@ -54,4 +54,9 @@ public class PlayerCombatCharacter : CharacterCombat
         Projectile newBullet = _bulletPool.Get();
         newBullet.Init(directionAttack.position, direction);
     }
+
+    public override void OnAttackByState()
+    {
+        
+    }
 }

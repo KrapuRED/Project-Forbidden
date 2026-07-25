@@ -50,6 +50,10 @@ MonoBehaviour:
   maxCapacityPool: 20
   bulletContainer: {fileID: 4004988284199117331}
   pointer: {fileID: 4516775978980362014}
+  coolDownBasic: 3
+  invtervalBetween: 0.5
+  limitBasicAtk: 3
+  isCoolDown: 0
 --- !u!1 &3072473905674557684
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +397,9 @@ MonoBehaviour:
   characterCombat: {fileID: 3371260319651589985}
   characterVisualizer: {fileID: 5950085528764033396}
   endWayPosition: {fileID: 0}
+  currentPath: {fileID: 0}
+  pathSpeed: 0.15
+  enemyCombatCharacter: {fileID: 3371260319651589985}
 --- !u!50 &4284363735705768605
 Rigidbody2D:
   serializedVersion: 5
@@ -779,7 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89d03ba0af00b449af48f2794cdb7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
-  moveSpeed: 3
+  moveSpeed: 2
   ownerMovement: {fileID: 3597717958601367537}
   playerInput: {fileID: 0}
 --- !u!1 &9161494830238098476

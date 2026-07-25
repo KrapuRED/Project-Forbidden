@@ -35,7 +35,7 @@ public abstract class CharacterCombat : MonoBehaviour
     // 1. Triggered when the pool needs to create a brand new instance
     private Projectile CreateProjectile()
     {
-        Projectile instance = Instantiate(bulletPrefab, bulletContainer);
+        Projectile instance = Instantiate(bulletPrefab);
         instance.ObjectPool = _bulletPool; // Link the pool reference
         return instance;
     }
@@ -58,5 +58,6 @@ public abstract class CharacterCombat : MonoBehaviour
         Destroy(projectile.gameObject);
     }
 
+    public abstract void OnAttackByState();
     public abstract void OnAttack(Transform dire);
 }

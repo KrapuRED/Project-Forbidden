@@ -21,6 +21,11 @@ public class EnemyPath : MonoBehaviour
     [SerializeField] private Color pathColor = Color.yellow;
     [SerializeField] private Color pointColor = Color.red;
 
+    [Header("Arc-Length Settings")]
+    [SerializeField] private int lengthSampleResolution = 100;
+
+    private float _cachedLength = -1f;
+
     public int PointCount => waypoints != null ? waypoints.Length : 0;
 
     public Vector2 GetSplinePoint(float t)
@@ -58,6 +63,33 @@ public class EnemyPath : MonoBehaviour
             // Garis melengkung Catmull-Rom
             return CatmullRom(p0, p1, p2, p3, localT);
         }
+    }
+
+    private float CalculatePathLength()
+    {
+        if (waypoints == null || waypoints.Length < 2)
+            return 0f;
+
+        float length = 0f;
+        Vector2 prev = GetSplinePoint(0f);
+
+        for (int i = 1; i <= lengthSampleResolution; i++)
+        {
+            float t = i / (float)lengthSampleResolution;
+            Vector2 point = GetSplinePoint(t);
+            length += Vector2.Distance(prev, point);
+            prev = point;
+        }
+
+        return length;
+    }
+
+    public float GetPathLength()
+    {
+        if (_cachedLength < 0f)
+            _cachedLength = CalculatePathLength();
+
+        return _cachedLength;
     }
 
     private Vector2 GetSafePoint(int index)

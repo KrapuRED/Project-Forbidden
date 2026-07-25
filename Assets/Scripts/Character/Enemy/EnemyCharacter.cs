@@ -7,12 +7,19 @@ public class EnemyCharacter : Character
 
     [Header("Path Following")]
     [SerializeField] private EnemyPath currentPath;
-    [SerializeField] private float pathSpeed = 0.15f;
+    [SerializeField] private float moveSpeed = 3f;
+    private Vector2 _previousPosition;
 
-    private Rigidbody2D rb;
+    [Header("Enemy Combat System")]
+    [SerializeField] private EnemyCombatCharacter enemyCombatCharacter;
+
     public IObjectPool<EnemyCharacter> ObjectPool { get; set; }
     public Transform EndPoint => endWayPosition;
-    private float _t;
+    public EnemyCombatCharacter EnemyCombatCharacter => enemyCombatCharacter;
+
+    private Rigidbody2D rb;
+    private float _t; 
+    private float _pathLength;
 
     private void Awake()
     {
@@ -21,44 +28,39 @@ public class EnemyCharacter : Character
 
     private void FixedUpdate()
     {
-        if (currentPath == null) return;
+        if (currentPath == null || currentPath.PointCount < 2)
+            return;
 
         if (_t >= 1f)
         {
+            CharacterMovement.StopAtBorder();
             ReachEndPoint();
             return;
         }
 
-        // 1. Progres t bertambah secara mulus
-        _t = Mathf.Clamp01(_t + pathSpeed * Time.fixedDeltaTime);
+        if (_pathLength > 0f)
+        {
+            float deltaT = (moveSpeed * Time.fixedDeltaTime) / _pathLength;
+            _t = Mathf.Clamp01(_t + deltaT);
+        }
 
-        // 2. Ambil titik target persis di jalur
         Vector2 targetPosition = currentPath.GetSplinePoint(_t);
-
-        // 3. Pindahkan Rigidbody2D secara halus tanpa jitter
-        if (rb != null)
-        {
-            rb.MovePosition(targetPosition);
-        }
-        else
-        {
-            transform.position = targetPosition;
-        }
-
-        // 4. (Opsional) Tetap kirimkan arah ke CharacterMovement jika butuh rotasi/animasi
-        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        CharacterMovement.OnMoveCharacter(direction);
+        CharacterMovement.OnMoveCharacterByPath(targetPosition);
     }
 
     public void InitEnemy(EnemyPath path)
     {
         _t = 0f;
-
         currentPath = path;
 
         if (path != null && path.PointCount > 0)
         {
+            _pathLength = path.GetPathLength(); // sampled + cached once here
             transform.position = path.GetSplinePoint(0f);
+        }
+        else
+        {
+            _pathLength = 0f;
         }
 
         CharacterHealth.Init(CharacterData.characterHealthAmount);
@@ -72,6 +74,7 @@ public class EnemyCharacter : Character
             entityID = EntityID;
 
         SetCharacterID(entityID);
+        enemyCombatCharacter.ResetCombat();
     }
 
     public void ReachEndPoint()
