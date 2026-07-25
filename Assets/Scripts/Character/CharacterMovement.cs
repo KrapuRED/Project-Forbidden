@@ -70,6 +70,11 @@ public class CharacterMovement : MonoBehaviour
             Debug.Log($"{gameObject.name}is missing RigidBody2D!");
             return;
         }
+
+        float movementSpeed = direction.magnitude;
+
+        if (ownerMovement.CharacterAnimation != null)
+            ownerMovement.CharacterAnimation.PlayWalkingAnimtion(movementSpeed);
        
         _rb2d.linearVelocity = direction * moveSpeed;
     }

@@ -20,6 +20,7 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] private CharacterHealth  characterHealth;
     [SerializeField] private CharacterCombat characterCombat;
     [SerializeField] private CharacterVisualizer characterVisualizer;
+    [SerializeField] private CharacterAnimation characterAnimation;
 
     public CharacterDataSO CharacterData => characterData;
     public CharacterMovement CharacterMovement => chatacterMovement;
@@ -27,6 +28,7 @@ public class Character : MonoBehaviour, IDamageable
     public CharacterHealth CharacterHealth => characterHealth;
     public CharacterCombat CharacterCombat => characterCombat;
     public CharacterVisualizer CharacterVisualizer => characterVisualizer;
+    public CharacterAnimation CharacterAnimation => characterAnimation;
 
     public CharacterType CharacterType => chracterType;
     public string EntityID => entityID;

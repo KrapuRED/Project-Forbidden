@@ -74,6 +74,7 @@ public class CharacterObjectRotation : MonoBehaviour
         Vector2 direction = (mouseWorldPos - _ownerTransform.position).normalized;
 
         RotateIndicator(direction);
+        RotateSprite(direction);
     }
 
     private void ChangePositionPointer(InputAction.CallbackContext contex)
@@ -90,7 +91,22 @@ public class CharacterObjectRotation : MonoBehaviour
 
         // Rotate pointer to face the target/cursor
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
         pointer.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
+    }
+
+    public void RotateSprite(Vector2 direction)
+    {
+        if (ownerCharacter == null)
+        {
+            Debug.LogWarning($"{gameObject.name} is missing Owner Character!");
+            return;
+        }
+
+        pointer.position = (Vector2)_ownerTransform.position + direction * offsetPointer;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        ownerCharacter.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
     }
 
     private void OnDrawGizmos()
