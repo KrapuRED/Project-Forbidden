@@ -49,14 +49,11 @@ public class CharacterObjectRotation : MonoBehaviour
 
     private void OnRemoveListener()
     {
-        if (playerInput == null)
+        if (playerInput != null)
         {
-            Debug.LogWarning($"{gameObject.name} is missing playerInput!");
-            return;
+            playerInput.actions["MousePosition"].performed -= ChangePositionPointer;
+            playerInput.actions["MousePosition"].canceled -= ChangePositionPointer;
         }
-
-        playerInput.actions["MousePosition"].performed -= ChangePositionPointer;
-        playerInput.actions["MousePosition"].canceled -= ChangePositionPointer;
     }
 
     #endregion
@@ -69,13 +66,11 @@ public class CharacterObjectRotation : MonoBehaviour
         if (_cam == null || pointer == null || _ownerTransform == null)
             return;
 
-        // convert mouse screen position -> world position
         Vector3 mouseWorldPos = _cam.ScreenToWorldPoint(
             new Vector3(_mouseScreenPosition.x, _mouseScreenPosition.y, _cam.transform.position.z * -1f)
         );
         mouseWorldPos.z = 0f;
 
-        // direction from player to cursor
         Vector2 direction = (mouseWorldPos - _ownerTransform.position).normalized;
 
         RotateIndicator(direction);

@@ -15,6 +15,8 @@ public class CharacterMovement : MonoBehaviour
     private Rigidbody2D _rb2d;
     private bool isReady;
 
+    public Vector2 OwnerDirection => _ownerDirection;
+
     #region Event System
     private void OnEnable()
     {
@@ -46,7 +48,7 @@ public class CharacterMovement : MonoBehaviour
 
     #endregion
 
-    private void Start()
+    private void Awake()
     {
         if (_rb2d == null)
             _rb2d = ownerMovement.GetComponent<Rigidbody2D>();
@@ -69,6 +71,12 @@ public class CharacterMovement : MonoBehaviour
             return;
         }
 
-        _rb2d.linearVelocity = _ownerDirection * moveSpeed;
+       
+        _rb2d.linearVelocity = direction * moveSpeed;
+    }
+
+    public void StopAtBorder()
+    {
+        _rb2d.linearVelocity = Vector2.zero;
     }
 }

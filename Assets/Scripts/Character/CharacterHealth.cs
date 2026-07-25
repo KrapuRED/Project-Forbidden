@@ -9,13 +9,6 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField] private float currentHealth;
     [SerializeField] private HealthUI healthUI;
 
-    private void Start()
-    {
-        currentHealth = maxHealth;
-        healthUI.UpdateHralthSlider(currentHealth, maxHealth);
-
-    }
-
     public void Init(float deafaultHealth)
     {
         currentHealth = maxHealth = deafaultHealth;

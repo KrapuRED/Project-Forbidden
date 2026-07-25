@@ -34,6 +34,7 @@ public class EntityCounterManager : MonoBehaviour
         {
             entityName = character.name,
             entityID = newEntityID,
+            entityType = character.CharacterType,
             entityPosition = character.transform
         };
 

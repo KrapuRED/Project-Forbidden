@@ -10,6 +10,7 @@ public enum CharacterType
 public class Character : MonoBehaviour, IDamageable
 {
     [SerializeField] private string entityID;
+    [SerializeField] private CharacterDataSO characterData;
     [SerializeField] private CharacterType chracterType;
 
     [Header("== Chatacter System ==")]
@@ -19,6 +20,7 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] private CharacterCombat characterCombat;
     [SerializeField] private CharacterVisualizer characterVisualizer;
 
+    public CharacterDataSO CharacterData => characterData;
     public CharacterMovement CharacterMovement => chatacterMovement;
     public CharacterObjectRotation CharacterObjectRotation => characterObjectRotation;
     public CharacterHealth CharacterHealth => characterHealth;
@@ -28,15 +30,12 @@ public class Character : MonoBehaviour, IDamageable
     public CharacterType CharacterType => chracterType;
     public string EntityID => entityID;
 
-    private void Start()
-    {
-        entityID = EntityCounterManager.Instance.GetEntityID(this);
-    }
-
     public void ITakeDamage(float damageValue)
     {
         characterHealth.OnTakingDamage(damageValue);
     }
+
+    public void SetCharacterID(string charID) => entityID = charID;
 
     public virtual void OnDeathCharacter()
     {

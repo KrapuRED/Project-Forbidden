@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2515284778516627596}
   - component: {fileID: 3371260319651589985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy Minion System - Combat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,53 @@ MonoBehaviour:
   maxCapacityPool: 20
   bulletContainer: {fileID: 4004988284199117331}
   pointer: {fileID: 4516775978980362014}
+--- !u!1 &3072473905674557684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6065919271137811720}
+  - component: {fileID: 8520165942726240195}
+  m_Layer: 6
+  m_Name: Visualizer - VFX Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6065919271137811720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072473905674557684}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7730199321906755527}
+  m_Father: {fileID: 2150540315515998437}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8520165942726240195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072473905674557684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e5a1fcdb19b49499e552f3d302d293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXBlipCharacter
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.1
 --- !u!1 &4938422340869725897
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2643766690046882012}
   - component: {fileID: 2246364846001547030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy Minion System - Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterHealth
   ownerCharacter: {fileID: 3597717958601367537}
-  maxHealth: 100
+  maxHealth: 0
   currentHealth: 0
   healthUI: {fileID: 4338403712444140649}
 --- !u!1 &6419596541707022628
@@ -107,7 +154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4004988284199117331}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy Minion Container - Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,6 +176,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1153514136424618013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6653562918641031015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7730199321906755527}
+  - component: {fileID: 6642143343194354336}
+  m_Layer: 6
+  m_Name: Blip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7730199321906755527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6653562918641031015}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6065919271137811720}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6642143343194354336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6653562918641031015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e5a1fcdb19b49499e552f3d302d293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXBlipCharacter
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.1
 --- !u!1 &7447410460690468117
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7975255593033312177}
   - component: {fileID: 3781197675054588863}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy Minion System - State Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,6 +268,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateMachine
   ownerCharacter: {fileID: 3597717958601367537}
   dataStates:
+  - nameStateCondition: Reach End Point
+    state: {fileID: 11400000, guid: 6bdcaaee4809e064d85cd72f6c4d6e26, type: 2}
+    condition: {fileID: 11400000, guid: 3d9f25b6e3e8b0f4688e3a4372580421, type: 2}
   - nameStateCondition: Attack Player
     state: {fileID: 11400000, guid: a9652915f79c40049a8c98e2b9818c21, type: 2}
     condition: {fileID: 11400000, guid: 38a2926159cd0d241ad4f5c40c847f56, type: 2}
@@ -189,16 +285,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1153514136424618013}
   - component: {fileID: 7379335905995142766}
+  - component: {fileID: 3597717958601367537}
   - component: {fileID: 4284363735705768605}
   - component: {fileID: 1788493059168388804}
-  - component: {fileID: 3597717958601367537}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy Minion
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1153514136424618013
 Transform:
   m_ObjectHideFlags: 0
@@ -276,6 +372,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &3597717958601367537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7857221067704329694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37446d754e98f8e4f92338b22a904761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacter
+  entityID: 
+  characterData: {fileID: 11400000, guid: 6e82532e225ff7542b0ba67388579e14, type: 2}
+  chracterType: 1
+  chatacterMovement: {fileID: 6411946241021632627}
+  characterObjectRotation: {fileID: 6204247473602379487}
+  characterHealth: {fileID: 2246364846001547030}
+  characterCombat: {fileID: 3371260319651589985}
+  characterVisualizer: {fileID: 5950085528764033396}
+  endWayPosition: {fileID: 0}
 --- !u!50 &4284363735705768605
 Rigidbody2D:
   serializedVersion: 5
@@ -302,7 +419,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &1788493059168388804
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -333,31 +450,13 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &3597717958601367537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7857221067704329694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37446d754e98f8e4f92338b22a904761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacter
-  entityID: 
-  chracterType: 1
-  chatacterMovement: {fileID: 6411946241021632627}
-  characterObjectRotation: {fileID: 6204247473602379487}
-  characterHealth: {fileID: 2246364846001547030}
-  characterCombat: {fileID: 3371260319651589985}
 --- !u!1 &8246637356338108755
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4516775978980362014}
   - component: {fileID: 1202342805461262958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pointer - Indicatore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3501662751488739409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: == Enemy Minion System ==
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,6 +582,7 @@ Transform:
   - {fileID: 2409211587139976202}
   - {fileID: 2515284778516627596}
   - {fileID: 2643766690046882012}
+  - {fileID: 2150540315515998437}
   m_Father: {fileID: 1153514136424618013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8405728152102768782
@@ -497,7 +597,7 @@ GameObject:
   - component: {fileID: 3964427886620708390}
   - component: {fileID: 4162651671495993024}
   - component: {fileID: 8067520007624813138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: '# == Enemy Minion Canvas == #'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,6 +687,54 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &8444066576345610684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2150540315515998437}
+  - component: {fileID: 5950085528764033396}
+  m_Layer: 6
+  m_Name: Enemy Minion System - Visualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2150540315515998437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8444066576345610684}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6065919271137811720}
+  m_Father: {fileID: 3501662751488739409}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5950085528764033396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8444066576345610684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1256ed30f741a48b17846eb221da18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterVisualizer
+  vfxContainer: {fileID: 6065919271137811720}
+  VFXCharacters: []
+  spriteRenderer: {fileID: 7379335905995142766}
 --- !u!1 &8602369567701630969
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2118824418421456669}
   - component: {fileID: 6411946241021632627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy Minion System - Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89d03ba0af00b449af48f2794cdb7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovement
-  moveSpeed: 0
+  moveSpeed: 3
   ownerMovement: {fileID: 3597717958601367537}
   playerInput: {fileID: 0}
 --- !u!1 &9161494830238098476
@@ -644,7 +792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2409211587139976202}
   - component: {fileID: 6204247473602379487}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'Enemy Minion System - Rotation '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterObjectRotation
   ownerCharacter: {fileID: 3597717958601367537}
-  isAIControlled: 0
+  isAIControlled: 1
   pointer: {fileID: 4516775978980362014}
   distanceView: 3
   offsetPointer: 0.5
@@ -696,6 +844,10 @@ PrefabInstance:
     - target: {fileID: 4155227801488968790, guid: c0663fe9e1980e14e8596e23c8f3371d, type: 3}
       propertyPath: m_Name
       value: UI Enemy Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155227801488968790, guid: c0663fe9e1980e14e8596e23c8f3371d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5673693060580730651, guid: c0663fe9e1980e14e8596e23c8f3371d, type: 3}
       propertyPath: m_Pivot.x
@@ -777,6 +929,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6311509628710756914, guid: c0663fe9e1980e14e8596e23c8f3371d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589945657790617994, guid: c0663fe9e1980e14e8596e23c8f3371d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6932641356579568367, guid: c0663fe9e1980e14e8596e23c8f3371d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.2
@@ -785,9 +945,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7237271369678557632, guid: c0663fe9e1980e14e8596e23c8f3371d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7933841917851722742, guid: c0663fe9e1980e14e8596e23c8f3371d, type: 3}
       propertyPath: m_Value
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005550921117955938, guid: c0663fe9e1980e14e8596e23c8f3371d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

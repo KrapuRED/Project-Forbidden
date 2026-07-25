@@ -13,7 +13,7 @@ public class StateAttackPlayerSO : StateSO
     private bool isCoolDown;
     private Transform _currentPlayerPos;
 
-    public override void EnterState(Character character)
+    public override void EnterState(EnemyCharacter character)
     {
         Transform playerPos = EntityCounterManager.Instance.GetEntityByID("PL")?.entityPosition;
 
@@ -29,13 +29,16 @@ public class StateAttackPlayerSO : StateSO
         _currentPlayerPos = playerPos;
     }
 
-    public override void ExcuteState(Character character)
+    public override void ExcuteState(EnemyCharacter character)
     {
         if (character == null)
         {
             Debug.Log($"{character.name} is cannot find player Transform");
             return;
         }
+
+        if (_currentPlayerPos == null)
+            return;
 
         Vector2 dirToPlayer = (_currentPlayerPos.position - character.transform.position).normalized;
         character.CharacterObjectRotation.RotateIndicator(dirToPlayer);
@@ -64,7 +67,7 @@ public class StateAttackPlayerSO : StateSO
         }
     }
 
-    public override void ExitState(Character character)
+    public override void ExitState(EnemyCharacter character)
     {
         _currentPlayerPos = null;
         isCoolDown = false;

@@ -29,14 +29,12 @@ public class PlayerCombatCharacter : CharacterCombat
 
     private void OnRemoveListener()
     {
-        if (playerInput == null)
+        if (playerInput != null)
         {
-            Debug.LogWarning($"{gameObject.name} is missing playerInput!");
-            return;
+            playerInput.actions["Combat"].performed -= OnInputAttack;
+            playerInput.actions["Combat"].canceled -= OnInputAttack;
         }
-
-        playerInput.actions["Combat"].performed -= OnInputAttack;
-        playerInput.actions["Combat"].canceled -= OnInputAttack;
+        
     }
     #endregion
 
