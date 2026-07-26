@@ -1,0 +1,560 @@
+fileFormatVersion: 2
+guid: 73a90ab3ff15d9f428584c020389f55c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8634292295083273978
+    second: Krapu RED logo wht_0
+  - first:
+      213: 4024702051796176440
+    second: Krapu RED logo wht_1
+  - first:
+      213: 3309868734854242935
+    second: Krapu RED logo wht_2
+  - first:
+      213: -7931240260038870137
+    second: Krapu RED logo wht_3
+  - first:
+      213: 5271134186001151119
+    second: Krapu RED logo wht_4
+  - first:
+      213: -8224502725408259374
+    second: Krapu RED logo wht_5
+  - first:
+      213: 6264627988894071610
+    second: Krapu RED logo wht_6
+  - first:
+      213: 250596945940166656
+    second: Krapu RED logo wht_7
+  - first:
+      213: -5725106226902440585
+    second: Krapu RED logo wht_8
+  - first:
+      213: -4855978501377386051
+    second: Krapu RED logo wht_9
+  - first:
+      213: 3217751277084645637
+    second: Krapu RED logo wht_10
+  - first:
+      213: 4348847671392697362
+    second: Krapu RED logo wht_11
+  - first:
+      213: -548185014655630690
+    second: Krapu RED logo wht_12
+  - first:
+      213: 2356009283583065685
+    second: Krapu RED logo wht_13
+  - first:
+      213: -3723053267843651647
+    second: Krapu RED logo wht_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Krapu RED logo wht_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2179
+        height: 2118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afea45f881b23d770800000000000000
+      internalID: 8634292295083273978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 308
+        width: 317
+        height: 581
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83ec81c313d9ad730800000000000000
+      internalID: 4024702051796176440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_2
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 308
+        width: 231
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 772a822f3140fed20800000000000000
+      internalID: 3309868734854242935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_3
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 308
+        width: 269
+        height: 505
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b3b1841039ee190800000000000000
+      internalID: -7931240260038870137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_4
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 308
+        width: 163
+        height: 523
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8434005d94d62940800000000000000
+      internalID: 5271134186001151119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_5
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 308
+        width: 200
+        height: 531
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d20fc5b852bcdd80800000000000000
+      internalID: -8224502725408259374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_6
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 308
+        width: 259
+        height: 562
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b3008e6fd60f650800000000000000
+      internalID: 6264627988894071610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_7
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 308
+        width: 268
+        height: 562
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 008bf88389c4a7300800000000000000
+      internalID: 250596945940166656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_8
+      rect:
+        serializedVersion: 2
+        x: 1929
+        y: 308
+        width: 250
+        height: 562
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7756a1438365c80b0800000000000000
+      internalID: -5725106226902440585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_9
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 42
+        width: 103
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db99774f7491c9cb0800000000000000
+      internalID: -4855978501377386051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_10
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 42
+        width: 103
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5099036fcbfb7ac20800000000000000
+      internalID: 3217751277084645637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_11
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 42
+        width: 103
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21c75ab7ae53a5c30800000000000000
+      internalID: 4348847671392697362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_12
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 42
+        width: 103
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e92424232a47468f0800000000000000
+      internalID: -548185014655630690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_13
+      rect:
+        serializedVersion: 2
+        x: 1651
+        y: 42
+        width: 103
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55ebd73f5f932b020800000000000000
+      internalID: 2356009283583065685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Krapu RED logo wht_14
+      rect:
+        serializedVersion: 2
+        x: 2056
+        y: 42
+        width: 103
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7625a47ce055cc0800000000000000
+      internalID: -3723053267843651647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 32932b24aca3b3d4bbe5ed072f114413
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Krapu RED logo wht_0: 8634292295083273978
+      Krapu RED logo wht_1: 4024702051796176440
+      Krapu RED logo wht_10: 3217751277084645637
+      Krapu RED logo wht_11: 4348847671392697362
+      Krapu RED logo wht_12: -548185014655630690
+      Krapu RED logo wht_13: 2356009283583065685
+      Krapu RED logo wht_14: -3723053267843651647
+      Krapu RED logo wht_15: 200911660
+      Krapu RED logo wht_2: 3309868734854242935
+      Krapu RED logo wht_3: -7931240260038870137
+      Krapu RED logo wht_4: 5271134186001151119
+      Krapu RED logo wht_5: -8224502725408259374
+      Krapu RED logo wht_6: 6264627988894071610
+      Krapu RED logo wht_7: 250596945940166656
+      Krapu RED logo wht_8: -5725106226902440585
+      Krapu RED logo wht_9: -4855978501377386051
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
